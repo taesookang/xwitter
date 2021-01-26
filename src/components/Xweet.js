@@ -1,13 +1,15 @@
-import { dbService } from 'fbase';
+import { dbService, storageService } from 'fbase';
 import React, { useState }from 'react'
 
 export default function Xweet({ xweetObj, isOwner }) {
     const [editing, setEditing] = useState(false)
     const [newXweet, setNewXweet] = useState(xweetObj.text)
+
     const onDeleteClick = async () => {
         const ok = window.confirm("Are you sure to delete this xweet?")
         if (ok) {
             await dbService.doc(`xweets/${xweetObj.id}`).delete();
+            await storageService.refFromURL(xweetObj.url).delete()
         }
     }
     const toggleEditing = () => setEditing((prev) => !prev);
@@ -43,6 +45,9 @@ export default function Xweet({ xweetObj, isOwner }) {
         ) : (
           <>
             <h4>{xweetObj.text}</h4>
+            {xweetObj.url && (
+              <img src={xweetObj.url} alt='' width='50px' height='50px'/>
+            )}
             {isOwner && (
               <>
                 <button onClick={onDeleteClick}>Delete Xweet</button>

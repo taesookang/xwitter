@@ -6,12 +6,14 @@ export default function Auth() {
     const [password, setPassword] = useState('')
     const [newAccount, setNewAccount] = useState(true)
     const [error, setError] = useState('')
+
     const onChange = (event) => {
         const { target: { name, value } } = event;
 
         if (name === 'email') return setEmail(value)
         else if (name === 'password') return setPassword(value);
     }
+
     const onSubmit = async (event) => {
       event.preventDefault();
       try {
@@ -31,6 +33,7 @@ export default function Auth() {
     };   
 
     const toggleAccount = () => setNewAccount((prev) => !prev)
+    
     const onSocialClick = async (event) => {
         const {target:{name}} = event;
         let provider;

@@ -1,11 +1,12 @@
-import { dbService } from 'fbase';
+import { dbService, storageService } from 'fbase';
 import React, { useState, useEffect }from 'react'
 import Xweet from '../components/Xweet'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Home({ userObj }) {
     const [xweet, setXweet] = useState("")
     const [xweets, setXweets] = useState([])
-    const [attatchment, setAttatchment] = useState('')
+    const [attachment, setAttachment] = useState('')
 
     useEffect(() => {
         dbService.collection('xweets').onSnapshot((snapshot)=>{
@@ -20,12 +21,21 @@ export default function Home({ userObj }) {
     
     const onSubmit = async (event) => {
         event.preventDefault();
-        await dbService.collection("xweets").add({
+        let attachmentURL = "";
+        if (attachment !== ""){
+            const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+            const response = await fileRef.putString(attachment, "data_url");
+            attachmentURL = await response.ref.getDownloadURL();
+        }
+        const xweetObj = {
             text: xweet,
             createdAt: Date.now(),
-            authorId: userObj.uid
-        })
-        setXweet('')
+            authorId: userObj.uid,
+            url: attachmentURL
+        }
+        await dbService.collection("xweets").add(xweetObj);
+        setXweet('');
+        setAttachment('');
     }
     const onChange = (event) => {
         const {target:{ value }} = event
@@ -38,12 +48,12 @@ export default function Home({ userObj }) {
         const reader = new FileReader();
         reader.onloadend = (finishedEvent) =>{
             const {currentTarget: {result}} = finishedEvent;
-            setAttatchment(result)
+            setAttachment(result)
         }
         reader.readAsDataURL(theFile);
     }
 
-    const onClearAttatchment = () => setAttatchment('')
+    const onClearAttachment = () => setAttachment('')
     return ( 
         <div> 
             <form onSubmit={onSubmit}>
@@ -55,10 +65,10 @@ export default function Home({ userObj }) {
                     maxLength={120}
                 />
                 <input type='file' onChange={onFileChange} accept='image/*' />
-                { attatchment &&
+                { attachment &&
                 <div>
-                    <img src={attatchment} width='100px' height='100px'/>
-                    <button onClick={onClearAttatchment }>Clear</button>
+                    <img src={attachment} alt='' width='100px' height='100px'/>
+                    <button onClick={onClearAttachment }>Clear</button>
                 </div> 
                 }
                 <input type='submit' value='Xweet'/>
