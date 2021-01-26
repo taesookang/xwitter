@@ -5,7 +5,7 @@ import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 import Navigation from './Navigation'
 
-export default function AppRouter({isLoggedIn, userObj}) {
+export default function AppRouter({ refreshUser ,isLoggedIn, userObj }) {
     return (
       <Router>
         {isLoggedIn && <Navigation userObj={userObj} />}
@@ -16,7 +16,7 @@ export default function AppRouter({isLoggedIn, userObj}) {
                 <Home userObj={userObj} />
               </Route>
               <Route exact path="/profile">
-                <Profile userObj={userObj} />
+                <Profile refreshUser={refreshUser} userObj={userObj} />
               </Route>
             </>
           ) : (
