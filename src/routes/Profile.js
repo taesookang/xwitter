@@ -28,13 +28,12 @@ export default function Profile({ refreshUser, userObj }) {
     }
 
     const getMyXweets = async () => {
-        const xweets = await dbService
+        await dbService
             .collection('xweets')
             .where('authorId', '==', userObj.uid)
             .orderBy('createdAt')
             .get();
          
-        console.log(xweets.docs.map((xweet) => xweet.data()))
     }
 
     useEffect(() => {

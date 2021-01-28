@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import { authService } from 'fbase'
+import './assets/scss/base.scss'
 
-console.log(authService)
 
 ReactDOM.render(
   <React.StrictMode>
