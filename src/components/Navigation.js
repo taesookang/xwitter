@@ -16,8 +16,14 @@ export default function Navigation({ userObj }) {
           </li>
           <li>
             <Link to="/profile" replace>
+                { userObj.photo ? 
+                <div className='user-photo'>
+                    <img  src={userObj.photo} alt=''/>
+                </div>
+                : 
                 <FontAwesomeIcon className='navIcon' icon={faUser} size="2x" />
-                <h5>{userObj.displayName}'s Profile</h5>
+                }
+                <span><strong>{userObj.displayName}</strong>'s Profile</span>
             </Link>
           </li>
         </ul>

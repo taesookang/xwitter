@@ -50,7 +50,10 @@ export default function Xweet({ userObj, xweetObj, isOwner }) {
           <>
             {isOwner && (
               <div className='xweet-label'>
-                <h5>{userObj.displayName}</h5>
+                <div className='user-info'>
+                <img id='profile-photo' src={userObj.photo}/>
+                  <span>{userObj.displayName}</span><h5>@{userObj.uid}</h5>
+                </div>
                 <div className='xweet-icons'>
                   <span onClick={toggleEditing}>
                     <FontAwesomeIcon icon={faPencilAlt} />
@@ -63,7 +66,7 @@ export default function Xweet({ userObj, xweetObj, isOwner }) {
             )}
             <h4>{xweetObj.text}</h4>
             {xweetObj.url && (
-              <img src={xweetObj.url} alt=''/>
+              <img className='xweet-photo' src={xweetObj.url} alt=''/>
             )}
           </>
         )}

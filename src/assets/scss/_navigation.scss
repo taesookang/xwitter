@@ -13,7 +13,7 @@ nav{
             max-width: 80px;
             height: 100px;
             list-style: none;
-            margin: 0 20px;
+            margin: 0 10px;
     
             a {
                 display: flex;
@@ -21,20 +21,39 @@ nav{
                 align-items: center;
                 text-decoration: none;
                 color: inherit;
-                h5 {
-                    text-align: center;
+
+                .user-photo {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                    
+                    img{
+                        border-radius: 50px;
+                        width: 100%;
+                    }
+
+                    :hover {
+                        transform: scale(1.2);
+                    }
                 }
+
+                span {
+                    text-align: center;
+                    margin-top: 10px;
+                    font-weight: 300;
+                    font-size: 12px;
+                }
+                
             }
             
             .navIcon{
                 color: $primary;
-            }
-
-            :hover {
-                .navIcon{
-                    transform: scale(1.2);
+                
+                :hover {
+                        transform: scale(1.2);             
                 }
             }
+
 
         }
     }

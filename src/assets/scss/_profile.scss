@@ -1,0 +1,83 @@
+.profile-container {
+    max-width: 360px;
+    width: 100%;
+
+    .formBtn {
+        cursor: pointer;
+        width: 100%;
+        padding: 7px 20px;
+        text-align: center;
+        color: white;
+        border-radius: 20px;
+        background: $primary-btn;
+        cursor: pointer;
+      }
+
+    .profileForm {
+        border-bottom: 1px solid rgba(white, 0.5);
+        padding-bottom: 30px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        #attach-photo {
+            opacity: 0;
+        }
+        .profilePhoto-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+
+            
+            img {
+                object-fit: cover;
+                width: 150px;
+                height: 150px;
+                border-radius: 100px;
+                padding: 10px;
+                border: 1px solid white;
+            }
+            .edit-icon{
+                margin-top: -35px;
+                margin-left: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                background: $background;
+                border: 1px solid white;
+                border-radius: 100px;
+            }
+        }
+
+        .formInput {
+            width: 100%;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 1px solid black;
+            text-align: center;
+            background-color: white;
+            color: black;
+        }
+        
+    }
+    .cancelBtn {
+        cursor: pointer;
+        background: tomato;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .logOut {
+        margin-top: 30px;
+    }
+}
+
+
+  
+  
+  

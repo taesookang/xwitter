@@ -14,7 +14,7 @@ export default function XweetFactory( {userObj} ) {
         event.preventDefault();
         let attachmentURL = "";
         if (attachment !== ""){
-            const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+            const fileRef = storageService.ref().child(`${userObj.uid}/attachments/${uuidv4()}`);
             const response = await fileRef.putString(attachment, "data_url");
             attachmentURL = await response.ref.getDownloadURL();
         }
@@ -37,7 +37,7 @@ export default function XweetFactory( {userObj} ) {
         const {target:{files}} = event;
         const theFile = files[0];
     
-        reader.onloadend = (finishedEvent) =>{
+        reader.onloadend = (finishedEvent) => {
             const {currentTarget: {result}} = finishedEvent;
             setAttachment(result)
         }
@@ -70,7 +70,7 @@ export default function XweetFactory( {userObj} ) {
                 />
             </div>
 
-          <label for="attach-file" className="factoryInput-label">
+          <label htmlFor="attach-file" className="factoryInput-label">
             <span>Add photos</span>
             <FontAwesomeIcon icon={faPlus} />
           </label>

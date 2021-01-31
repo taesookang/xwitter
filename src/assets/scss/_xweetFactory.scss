@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 20px;
 
     .factoryInput-container {
         display: flex;
@@ -27,7 +28,7 @@
         .factoryInput-arrow {
             position: absolute;
             right: 0;
-            background: linear-gradient(45deg, #1CB0A7, $primary);
+            background: $primary-btn;
             height: 40px;
             width: 40px;
             padding: 10px 0px;
