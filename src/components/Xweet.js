@@ -2,6 +2,7 @@ import { dbService, storageService } from 'fbase';
 import React, { useState }from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import moment from 'moment';
 
 export default function Xweet({ userObj, xweetObj, isOwner }) {
     const [editing, setEditing] = useState(false)
@@ -51,7 +52,7 @@ export default function Xweet({ userObj, xweetObj, isOwner }) {
             {isOwner && (
               <div className='xweet-label'>
                 <div className='user-info'>
-                <img id='profile-photo' src={userObj.photo}/>
+                <img id='profile-photo' src={userObj.photo} alt=''/>
                   <span>{userObj.displayName}</span><h5>@{userObj.uid}</h5>
                 </div>
                 <div className='xweet-icons'>
@@ -68,6 +69,9 @@ export default function Xweet({ userObj, xweetObj, isOwner }) {
             {xweetObj.url && (
               <img className='xweet-photo' src={xweetObj.url} alt=''/>
             )}
+            <div className='xweet-footer'>
+              <span>{moment(xweetObj.createdAt).fromNow()}</span>
+            </div>
           </>
         )}
       </div>

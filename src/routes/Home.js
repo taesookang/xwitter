@@ -22,9 +22,12 @@ export default function Home({ userObj }) {
         <div className='container'> 
             <XweetFactory userObj={userObj}/>
             <div className='xweet-container'>
-                {xweets.map((xweet) => (
+                {xweets
+                    .filter(xweet => xweet.authorId === userObj.uid)
+                    .map((xweet) => (
                     <Xweet userObj={userObj} key={xweet.id} xweetObj={xweet} isOwner={xweet.authorId === userObj.uid}/>
-                ))}
+                    ))
+                }
             </div>
         </div>
     )
