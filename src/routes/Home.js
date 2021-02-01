@@ -5,28 +5,33 @@ import XweetFactory from '../components/XweetFactory'
 
 export default function Home({ userObj }) {
 
-    console.log(userObj)
     const [xweets, setXweets] = useState([])
 
+    const getMyXweets = async () => {
+        await dbService
+            .collection('xweets')
+            .where('authorId', '==', userObj.uid)
+            .orderBy('createdAt', 'desc')
+            .onSnapshot((snapshot)=>{
+                const xweetArray = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                setXweets(xweetArray)
+            });
+    }
+
     useEffect(() => {
-        dbService.collection('xweets').onSnapshot((snapshot)=>{
-            const xweetArray = snapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }));
-            setXweets(xweetArray)
-        })
+        getMyXweets()
     },[]) 
 
     return ( 
         <div className='container'> 
             <XweetFactory userObj={userObj}/>
             <div className='xweet-container'>
-                {xweets
-                    .filter(xweet => xweet.authorId === userObj.uid)
-                    .map((xweet) => (
-                    <Xweet userObj={userObj} key={xweet.id} xweetObj={xweet} isOwner={xweet.authorId === userObj.uid}/>
-                    ))
+                {xweets.map((xweet) => (
+                        <Xweet userObj={userObj} key={xweet.id} xweetObj={xweet} isOwner={xweet.authorId === userObj.uid}/>
+                        ))
                 }
             </div>
         </div>

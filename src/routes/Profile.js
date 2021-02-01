@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { authService, dbService, storageService } from 'fbase'
+import React, { useState } from 'react'
+import { authService, storageService } from 'fbase'
 import { useHistory } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -48,14 +48,6 @@ export default function Profile({ refreshUser, userObj }) {
         
     }
 
-    const getMyXweets = async () => {
-        await dbService
-            .collection('xweets')
-            .where('authorId', '==', userObj.uid)
-            .orderBy('createdAt')
-            .get();
-         
-    }
 
     const onPhotoChange = (event) =>{
         const {target: {files}} = event;
@@ -70,11 +62,6 @@ export default function Profile({ refreshUser, userObj }) {
             setProfilePhoto(result)
         }
     }
-
-    useEffect(() => {
-        getMyXweets();
-    })
-
 
     return (
       <div className="container">
