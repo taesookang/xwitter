@@ -3,7 +3,7 @@
     background-color: white;
     height: auto;
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;
     padding: 20px;
     border-radius: 10px;
     position: relative;
@@ -31,8 +31,8 @@
             
             img#profile-photo {
             object-fit: cover;
-            margin-top: -30px;
-            margin-left: -60px;
+            margin-top: -40px;
+            margin-left: -50px;
             margin-right: 10px;
             border-radius: 100px;
             border: 2px solid white;
@@ -146,7 +146,7 @@
         padding-top: 10px;
 
         input {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             height: 40px;
             background: $primary-btn;
@@ -157,7 +157,7 @@
             
         }
         button {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             height: 40px;
             background: tomato;
