@@ -25,9 +25,6 @@ export default function Profile({ refreshUser, userObj }) {
     const onSubmit = async (event) => {
         event.preventDefault();
         let profilePhotoURL = "";
-        if (profilePhoto !== ''){
-            
-        } 
         if (userObj.displayName !== newDisplayName){
             await userObj.updateProfile({
                 displayName: newDisplayName
@@ -41,7 +38,6 @@ export default function Profile({ refreshUser, userObj }) {
                 photoURL: profilePhotoURL
             })
 
-            console.log(userObj.photo)
         }
             
         refreshUser();
@@ -71,7 +67,7 @@ export default function Profile({ refreshUser, userObj }) {
           <form onSubmit={onSubmit} className="profileForm">
             <label htmlFor="attach-photo">
                 <div className='profilePhoto-container'>
-                    { userObj.photo ? (
+                    { profilePhoto ? (
                         <img className='profile-photo' src={profilePhoto} alt='' />
                     ):(
                         <FontAwesomeIcon className='profile-user' icon={faUser} />
