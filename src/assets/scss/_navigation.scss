@@ -4,6 +4,7 @@ nav{
     ul {
         display: flex;
         justify-content: center;
+        // align-items: center;
         margin-top: 30px;
         padding-left: 0;
         
@@ -22,17 +23,16 @@ nav{
                 text-decoration: none;
                 color: inherit;
 
-                .user-photo {
-                    width: 40px;
-                    height: 40px;
-                    object-fit: cover;
-                    
+                .user-photo { 
+
                     img{
+                        width: 2.5em;
+                        height: 2.5em;
+                        object-fit: cover;
                         border-radius: 50px;
-                        width: 100%;
                     }
 
-                    :hover {
+                    &:hover {
                         transform: scale(1.2);
                     }
                 }
@@ -49,9 +49,11 @@ nav{
             .navIcon{
                 color: $primary;
                 
-                :hover {
+                &:hover {
                         transform: scale(1.2);             
                 }
+
+
             }
 
 

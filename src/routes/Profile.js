@@ -3,7 +3,7 @@ import { authService, storageService } from 'fbase'
 import { useHistory } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faUser } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -63,6 +63,7 @@ export default function Profile({ refreshUser, userObj }) {
         }
     }
 
+
     return (
       <div className="container">
         <div className="profile-container">
@@ -70,9 +71,13 @@ export default function Profile({ refreshUser, userObj }) {
           <form onSubmit={onSubmit} className="profileForm">
             <label htmlFor="attach-photo">
                 <div className='profilePhoto-container'>
-                    <img src={profilePhoto} />
+                    { userObj.photo ? (
+                        <img className='profile-photo' src={profilePhoto} alt='' />
+                    ):(
+                        <FontAwesomeIcon className='profile-user' icon={faUser} />
+                    )}
                     <div className='edit-icon'>
-                        <FontAwesomeIcon icon={faPen} color='white'/>       
+                        <FontAwesomeIcon icon={faPen} color='white'/>     
                     </div>
                 </div>
             </label>
@@ -80,6 +85,7 @@ export default function Profile({ refreshUser, userObj }) {
               id="attach-photo"
               type="file"
               accept="image/*"
+              value=''
               onChange={onPhotoChange}
             />
             <input

@@ -21,8 +21,13 @@ export default function Home({ userObj }) {
             });
     }
 
+
     useEffect(() => {
         getMyXweets()
+
+        return(
+            setXweets([])
+        )
     },[]) 
 
     return ( 

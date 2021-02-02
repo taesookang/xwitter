@@ -6,12 +6,9 @@ function App() {
   const [init, setInit] = useState(false)
   const [userObj, setUserObj] = useState(null)
 
-  
-
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if(user) {
-        console.log(user.photoURL)
         setUserObj({
           displayName: user.displayName,
           uid: user.uid,
@@ -45,7 +42,7 @@ function App() {
         userObj={userObj}
         /> 
         : 'Loading...'}
-      <footer>&copy; {new Date().getFullYear()} Xwitter  </footer>
+      <footer>&copy; {new Date().getFullYear()} Xwitter by Taesoo Kang </footer>
     </div>
   );
 }

@@ -32,12 +32,21 @@
             cursor: pointer;
 
             
-            img {
+            .profile-photo {
                 object-fit: cover;
                 width: 150px;
                 height: 150px;
                 border-radius: 100px;
                 padding: 10px;
+                border: 1px solid white;
+            }
+            .profile-user {
+                color: $primary;
+                object-fit: fill;
+                width: 120px;
+                height: 120px;
+                border-radius: 170px;
+                padding: 30px;
                 border: 1px solid white;
             }
             .edit-icon{
