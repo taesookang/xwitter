@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Xwitter 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Check out on website :point_right: [Xwitter](https://taesookang.github.io/xwitter/)
 
-## Available Scripts
+**Use this account for testing :**
+```
+ID: test@justtest.com
+PASSWORD: justtest
+```
+## Project objective
 
-In the project directory, you can run:
+:white_check_mark: A Mobile friendly Twitter clone coding using Google Firebase featuring user authentications and basic contents CRUD functions.
 
-### `yarn start`
+## Built with
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React JS
+  - React hooks 
+  - React router dom
+  - React moment
+- [Google Firebase](https://firebase.google.com/)
+  - auth
+  - firestore
+  - storage
+-  uuid v4 (for generating random user id)
+- Font Awesome (for icons)
+- SCSS (for styling)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
+### User Authentication 
+Allows users to create account by setting up email and password, and to sign in with Google or Github account
+ 
+<img width="350" alt="xwitter-auth" src="https://user-images.githubusercontent.com/75271289/109721558-848ca080-7b79-11eb-88a4-dbfbd02c644e.png"> <img width="350" alt="xwitter-error2" src="https://user-images.githubusercontent.com/75271289/109721670-a5ed8c80-7b79-11eb-846a-065843afdc90.png">
 
-### `yarn test`
+---
+### Create and edit tweets  
+Allows logged in users to create tweets with both text and local image file and also to update them.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="350" height="450" alt="xwitter-home" src="https://user-images.githubusercontent.com/75271289/109724723-fcf56080-7b7d-11eb-9cc6-2c45edcfe465.png"> <img width="350" height="450" alt="xwitter-edit4" src="https://user-images.githubusercontent.com/75271289/109763065-85482580-7bbf-11eb-82d7-2e7880550f63.png">
 
-### `yarn build`
+---
+### Profile update and sign out
+Offers functions to edit user name and profile photo, and also to sign out. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="350" height="480" alt="xwitter-profile" src="https://user-images.githubusercontent.com/75271289/109764621-cc371a80-7bc1-11eb-8b25-6fb7edde5011.png"> <img width="350" height="480" alt="xwitter-profile4" src="https://user-images.githubusercontent.com/75271289/109765509-f63d0c80-7bc2-11eb-96ed-a17752aa1f60.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
