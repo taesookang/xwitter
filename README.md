@@ -9,7 +9,7 @@ PASSWORD: justtest
 ```
 ## Project objective
 
-:white_check_mark: A Mobile friendly Twitter clone coding using Google Firebase featuring user authentications and basic contents CRUD functions.
+:white_check_mark: A Mobile friendly Twitter clone coding using Google Firebase featuring user authentications and basic CRUD functions for the contents.
 
 ## Built with
 
